@@ -8,47 +8,32 @@ routie ({
     }
 })
 
+// Variable which keeps track of the current tab.
+let tab = "Veganistische+kookboeken"
+
 window.onload = function() {
-    get(true)
+    get(true, tab)
+
+    $(".cooking").classList.add("green")
 }
 
-// EventListeners for sort options.
-// $(".popularity").addEventListener("click", function() {
-//     $(".popularity").classList.remove("lightgreen")
-//     $(".product_name").classList.remove("darkgreen")
-//     $(".add_date").classList.remove("darkgreen")
-//     $(".edit_date").classList.remove("darkgreen")
+// EventListeners for tabs.
+$(".cooking").addEventListener("click", function() {
+    tab = "Veganistische+kookboeken"
+    get(true, tab)
 
-//     get(true, "unique_scans_n", $("input").value)
-// })
+    $(".cooking").classList.remove("grey")
+    $(".philosophical").classList.remove("green")
+})
 
-// $(".product_name").addEventListener("click", function() {
-//     $(".popularity").classList.add("lightgreen")
-//     $(".product_name").classList.add("darkgreen")
-//     $(".add_date").classList.remove("darkgreen")
-//     $(".edit_date").classList.remove("darkgreen")
+$(".philosophical").addEventListener("click", function() {
+    tab = "Veganisme"
+    get(true, tab)
 
-//     get(true, "product_name", $("input").value)
-// })
-
-// $(".add_date").addEventListener("click", function() {
-//     $(".popularity").classList.add("lightgreen")
-//     $(".product_name").classList.remove("darkgreen")
-//     $(".add_date").classList.add("darkgreen")
-//     $(".edit_date").classList.remove("darkgreen")
-
-//     get(true, "created_t", $("input").value)
-// })
-
-// $(".edit_date").addEventListener("click", function() {
-//     $(".popularity").classList.add("lightgreen")
-//     $(".product_name").classList.remove("darkgreen")
-//     $(".add_date").classList.remove("darkgreen")
-//     $(".edit_date").classList.add("darkgreen")
-
-//     get(true, "last_modified_t", $("input").value)
-// })
+    $(".cooking").classList.add("grey")
+    $(".philosophical").classList.add("green")
+})
 
 $(".more").addEventListener("click", function() {
-    get(false)
+    get(false, tab)
 })

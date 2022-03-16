@@ -66,12 +66,13 @@ h1 span {
 }
 
 .tabs button:hover {
-    background: #838383;
+    background: green;
     transition: background 0.3s ease-in-out;
 }
 
-.tabs .cooking {
-    background: #838383;
+.tabs button.grey:hover {
+    background: green;
+    transition: background 0.3s ease-in-out;
 }
 
 ul {
@@ -205,12 +206,12 @@ span {
     display: flex;
 }
 
-.sort button.darkgreen {
-    background: #749262;
+.tabs button.green {
+    background: green;
 }
 
-.sort button.lightgreen {
-    background: #9ac383;
+.tabs button.grey {
+    background: #969696;
 }
 
 /* Laptop */
