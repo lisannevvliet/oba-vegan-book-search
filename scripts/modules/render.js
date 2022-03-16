@@ -29,15 +29,12 @@ export function render(data, first) {
         // Show the instructions.
         $(".instructions").classList.remove("none")
 
-        // Assign a name to the search query type.
-        let type = barcode() ? "barcode" : "name"
-
-        // If no products exist, tell that to the user.
+        // If no results exist, tell that to the user.
         if (first) {
-            $(".instructions").textContent = `No products were found with the ${type} "${$("input").value}". Please try again.`
-        // If all products are already loaded, tell that to the user.
+            $(".instructions").textContent = `No results were found with the query "${window.location.hash.substring(1)}". Please try again.`
+        // If all results are already loaded, tell that to the user.
         } else {
-            $(".instructions").textContent = `All products with the ${type} "${$("input").value}" are already shown.`
+            $(".instructions").textContent = `All results with the query "${window.location.hash.substring(1)}" are already shown.`
         }
     }
 

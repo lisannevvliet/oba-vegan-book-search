@@ -4,19 +4,19 @@ import "./modules/vendor/routie.min.js"
 
 // Get the results from the API when the hash changes.
 routie ({
-    ":tab": tab => {
-        get(true, tab)
+    ":query": query => {
+        get(true, query)
     }
 })
 
 window.onload = function() {
     // If the hash is empty, add the default tab as the hash.
     if (!window.location.hash) {
-        window.location.hash = "Veganistische+kookboeken"
+        window.location.hash = "subject:\"Veganistische+kookboeken\""
     }
 
     // Color the tabs according to the selected one (found in the hash).
-    if (window.location.hash.substring(1) == "Veganisme") {
+    if (window.location.hash.substring(1) == "subject:\"Veganisme\"") {
         $(".cooking").classList.add("grey")
         $(".philosophical").classList.add("green")
     } else {
@@ -26,14 +26,14 @@ window.onload = function() {
 
 // EventListeners for tabs.
 $(".cooking").addEventListener("click", function() {
-    window.location.hash = "Veganistische+kookboeken"
+    window.location.hash = "subject:\"Veganistische+kookboeken\""
 
     $(".cooking").classList.remove("grey")
     $(".philosophical").classList.remove("green")
 })
 
 $(".philosophical").addEventListener("click", function() {
-    window.location.hash = "Veganisme"
+    window.location.hash = "subject:\"Veganisme\""
 
     $(".cooking").classList.add("grey")
     $(".philosophical").classList.add("green")

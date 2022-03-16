@@ -4,7 +4,7 @@ import { render } from "./render.js"
 // Counter for the page number.
 let page = 1
 
-export function get(first, subject) {
+export function get(first, query) {
     // Hide the text, "More" button and show the loader upon searching.
     $(".instructions").classList.add("none")
     $(".more").classList.remove("block")
@@ -20,7 +20,7 @@ export function get(first, subject) {
     }
 
     // Send a search request to the API.
-    fetch(`https://cors-anywhere.herokuapp.com/https://zoeken.oba.nl/api/v1/search/?q=subject:${subject}&authorization=d7519ea81ad4e06ab5e5dac46ddeb63a&detaillevel=Default&page=${page}&output=json`)
+    fetch(`https://cors-anywhere.herokuapp.com/https://zoeken.oba.nl/api/v1/search/?q=${query}&authorization=d7519ea81ad4e06ab5e5dac46ddeb63a&detaillevel=Default&page=${page}&output=json`)
     // fetch(`http://obaliquid.staging.aquabrowser.nl/onderwijs/api/v1/search/?q=veganistisch+NOT+lom.lifecycle.contribute.publisher%3Dwikipedia&authorization=d7519ea81ad4e06ab5e5dac46ddeb63a`)
         .then(function(response) {
             return response.json()
