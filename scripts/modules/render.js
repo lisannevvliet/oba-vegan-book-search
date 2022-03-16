@@ -21,9 +21,6 @@ export function render(data, first) {
             }
         })
 
-        // Show the sort options.
-        $(".sort").classList.add("flex")
-
         // If there are more pages, show the "More" button.
         if (data["meta"]["current-page"] <= (data["meta"]["result-count"] / data["meta"]["page-count"])) {
             $(".more").classList.add("block")
@@ -31,8 +28,6 @@ export function render(data, first) {
     } else {
         // Show the instructions.
         $(".instructions").classList.remove("none")
-        // Hide the sort options.
-        $(".sort").classList.remove("flex")
 
         // Assign a name to the search query type.
         let type = barcode() ? "barcode" : "name"

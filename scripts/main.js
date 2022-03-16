@@ -13,41 +13,41 @@ window.onload = function() {
 }
 
 // EventListeners for sort options.
-$(".popularity").addEventListener("click", function() {
-    $(".popularity").classList.remove("lightgreen")
-    $(".product_name").classList.remove("darkgreen")
-    $(".add_date").classList.remove("darkgreen")
-    $(".edit_date").classList.remove("darkgreen")
+// $(".popularity").addEventListener("click", function() {
+//     $(".popularity").classList.remove("lightgreen")
+//     $(".product_name").classList.remove("darkgreen")
+//     $(".add_date").classList.remove("darkgreen")
+//     $(".edit_date").classList.remove("darkgreen")
 
-    get(true, "unique_scans_n", $("input").value)
-})
+//     get(true, "unique_scans_n", $("input").value)
+// })
 
-$(".product_name").addEventListener("click", function() {
-    $(".popularity").classList.add("lightgreen")
-    $(".product_name").classList.add("darkgreen")
-    $(".add_date").classList.remove("darkgreen")
-    $(".edit_date").classList.remove("darkgreen")
+// $(".product_name").addEventListener("click", function() {
+//     $(".popularity").classList.add("lightgreen")
+//     $(".product_name").classList.add("darkgreen")
+//     $(".add_date").classList.remove("darkgreen")
+//     $(".edit_date").classList.remove("darkgreen")
 
-    get(true, "product_name", $("input").value)
-})
+//     get(true, "product_name", $("input").value)
+// })
 
-$(".add_date").addEventListener("click", function() {
-    $(".popularity").classList.add("lightgreen")
-    $(".product_name").classList.remove("darkgreen")
-    $(".add_date").classList.add("darkgreen")
-    $(".edit_date").classList.remove("darkgreen")
+// $(".add_date").addEventListener("click", function() {
+//     $(".popularity").classList.add("lightgreen")
+//     $(".product_name").classList.remove("darkgreen")
+//     $(".add_date").classList.add("darkgreen")
+//     $(".edit_date").classList.remove("darkgreen")
 
-    get(true, "created_t", $("input").value)
-})
+//     get(true, "created_t", $("input").value)
+// })
 
-$(".edit_date").addEventListener("click", function() {
-    $(".popularity").classList.add("lightgreen")
-    $(".product_name").classList.remove("darkgreen")
-    $(".add_date").classList.remove("darkgreen")
-    $(".edit_date").classList.add("darkgreen")
+// $(".edit_date").addEventListener("click", function() {
+//     $(".popularity").classList.add("lightgreen")
+//     $(".product_name").classList.remove("darkgreen")
+//     $(".add_date").classList.remove("darkgreen")
+//     $(".edit_date").classList.add("darkgreen")
 
-    get(true, "last_modified_t", $("input").value)
-})
+//     get(true, "last_modified_t", $("input").value)
+// })
 
 $(".more").addEventListener("click", function() {
     get(false)
