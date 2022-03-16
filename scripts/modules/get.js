@@ -1,5 +1,4 @@
 import { $ } from "./$.js"
-import { url } from "./url.js"
 import { render } from "./render.js"
 
 // Counter for the page number.
@@ -21,7 +20,8 @@ export function get(first, sort_by, hash) {
     }
 
     // Send a search request to the API.
-    fetch("https://cors-anywhere.herokuapp.com/https://zoeken.oba.nl/api/v1/search/?q=veganistisch&authorization=1e19898c87464e239192c8bfe422f280&detaillevel=Default&page=1&output=json", { Authorization: "Bearer d7519ea81ad4e06ab5e5dac46ddeb63a" })
+    fetch(`https://cors-anywhere.herokuapp.com/https://zoeken.oba.nl/api/v1/search/?q=veganistisch&authorization=1e19898c87464e239192c8bfe422f280&detaillevel=Default&page=${page}&output=json`, { Authorization: "Bearer d7519ea81ad4e06ab5e5dac46ddeb63a" })
+    // fetch(`http://obaliquid.staging.aquabrowser.nl/onderwijs/api/v1/search/?q=veganistisch+NOT+lom.lifecycle.contribute.publisher%3Dwikipedia&authorization=d7519ea81ad4e06ab5e5dac46ddeb63a`, { mode: 'no-cors' })
         .then(function(response) {
             return response.json()
         })

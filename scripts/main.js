@@ -9,7 +9,7 @@ routie ({
 })
 
 window.onload = function() {
-    get()
+    get(true)
 }
 
 // EventListeners for sort options.
@@ -50,5 +50,5 @@ $(".edit_date").addEventListener("click", function() {
 })
 
 $(".more").addEventListener("click", function() {
-    get(false, "", $("input").value)
+    get(false)
 })

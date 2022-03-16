@@ -1,5 +1,4 @@
 import { $ } from "./$.js"
-// import { barcode } from "./barcode.js"
 
 export function render(data, first) {
     // If results exist, render them in the HTML.
@@ -9,8 +8,8 @@ export function render(data, first) {
                 // Empty string for the summary.
                 let summary = ""
 
-                // Add the summary if there is any.
-                if (result.summaries) {
+                // Add the summary if there is any and it is not empty.
+                if (result.summaries && result.summaries[0] != "") {
                     summary = `<details><summary>Summary</summary>
                     <p>${result.summaries[0]}</p></details>`
                 }
@@ -26,7 +25,7 @@ export function render(data, first) {
         $(".sort").classList.add("flex")
 
         // If there are more pages, show the "More" button.
-        if (data.page <= (data.count / data.page_size)) {
+        if (data["meta"]["current-page"] <= (data["meta"]["result-count"] / data["meta"]["page-count"])) {
             $(".more").classList.add("block")
         }
     } else {

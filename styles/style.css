@@ -174,7 +174,8 @@ span {
     font-weight: bold;
     font-family: Lato Bold, system-ui;
     font-size: 1em;
-    background: #63b776;
+    background: #969696;
+    transition: background 0.3s ease-in-out;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -183,7 +184,8 @@ span {
 }
 
 .more:hover {
-    background: #5aa66b;
+    background: #888888;
+    transition: background 0.3s ease-in-out;
 }
 
 .instructions {
