@@ -168,6 +168,9 @@ span {
 }
 
 .instructions {
+    display: flex;
+    justify-content: center;
+    text-align: center;
     font-weight: bold;
     font-family: Lato Bold, system-ui;
     line-height: 1.5;
