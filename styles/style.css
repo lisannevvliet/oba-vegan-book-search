@@ -18,6 +18,10 @@ body {
     font-family: Avenir Roman, system-ui;
 }
 
+a {
+    cursor: pointer;
+}
+
 #logo {
     display: flex;
     justify-content: center;
@@ -42,11 +46,60 @@ h1 span {
     color: green;
 }
 
+form, .instructions {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+form {
+    width: 90vw;
+    margin: 0 auto;
+    z-index: 9;
+}
+
+form input {
+    flex-grow: 1;
+    width: 37%;
+    border: 1px solid #969696;
+    border-radius: 5px 0 0 5px;
+    font-size: 1em;
+    background-image: url("../images/search.png");
+    background-position: 13px 16px; 
+    background-repeat: no-repeat;
+    background-size: 15px;
+    padding: 12px 20px 12px 40px;
+}
+
+form input:focus {
+    outline-color: green;
+}
+
+form button[type="submit"] {
+    color: white;
+    font-weight: bold;
+    font-family: Lato Bold, system-ui;
+    font-size: 1em;
+    background: #969696;
+    transition: background 0.3s ease-in-out;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    padding: 16px 32px;
+    margin-left: 0;
+}
+
+form button[type="submit"]:hover {
+    background: #888888;
+    transition: background 0.3s ease-in-out;
+}
+
 .tabs {
     display: flex;
     justify-content: center;
     width: 90vw;
     margin: 0 auto;
+    margin-top: 5px;
     gap: 5px;
 }
 
@@ -216,6 +269,10 @@ span {
         font-size: 4em;
     }
 
+    form {
+        width: 70vw;
+    }
+
     .tabs {
         width: 70vw;
     }
@@ -242,6 +299,10 @@ span {
 
 /* Laptop L */
 @media only screen and (min-width: 1440px) {
+    form {
+        width: 50vw;
+    }
+
     #product {
         width: 50vw;
     }

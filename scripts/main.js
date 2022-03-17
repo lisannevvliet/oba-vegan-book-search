@@ -16,6 +16,9 @@ window.onload = function() {
         // +siso:\"628.72\"
     }
 
+    // Empty the search query.
+    $('form input').value = ""
+
     // Color the tabs according to the selected one (found in the hash).
     if (window.location.hash.substring(1) == "subject:%22Veganisme%22") {
         $(".cooking").classList.remove("green")
@@ -25,9 +28,31 @@ window.onload = function() {
     }
 }
 
+// If the title is clicked, show the homepage.
+$("#title").addEventListener("click", function() {
+    window.location.hash = "subject:\"Veganistische+kookboeken\""
+    location.reload()
+})
+
+$("form").addEventListener("submit", function(event) {
+    get(true, $("input").value)
+
+    $(".cooking").classList.remove("green")
+    $(".philosophical").classList.remove("green")
+
+    // Close the keyboard after submit.
+    document.activeElement.blur()
+
+    // Prevent the page from reloading.
+    event.preventDefault()
+})
+
 // EventListeners for tabs.
 $(".cooking").addEventListener("click", function() {
     window.location.hash = "subject:\"Veganistische+kookboeken\""
+
+    // Empty the search query.
+    $('form input').value = ""
 
     $(".cooking").classList.add("green")
     $(".philosophical").classList.remove("green")
@@ -35,6 +60,9 @@ $(".cooking").addEventListener("click", function() {
 
 $(".philosophical").addEventListener("click", function() {
     window.location.hash = "subject:\"Veganisme\""
+
+    // Empty the search query.
+    $('form input').value = ""
 
     $(".cooking").classList.remove("green")
     $(".philosophical").classList.add("green")
