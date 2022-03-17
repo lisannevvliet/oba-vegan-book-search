@@ -16,8 +16,8 @@ window.onload = function() {
     }
 
     // Color the tabs according to the selected one (found in the hash).
-    if (window.location.hash.substring(1) == "subject:\"Veganisme\"") {
-        $(".cooking").classList.add("grey")
+    if (window.location.hash.substring(1) == "subject:%22Veganisme%22") {
+        $(".cooking").classList.remove("green")
         $(".philosophical").classList.add("green")
     } else {
         $(".cooking").classList.add("green")
@@ -28,14 +28,14 @@ window.onload = function() {
 $(".cooking").addEventListener("click", function() {
     window.location.hash = "subject:\"Veganistische+kookboeken\""
 
-    $(".cooking").classList.remove("grey")
+    $(".cooking").classList.add("green")
     $(".philosophical").classList.remove("green")
 })
 
 $(".philosophical").addEventListener("click", function() {
     window.location.hash = "subject:\"Veganisme\""
 
-    $(".cooking").classList.add("grey")
+    $(".cooking").classList.remove("green")
     $(".philosophical").classList.add("green")
 })
 
