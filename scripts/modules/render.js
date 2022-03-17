@@ -14,10 +14,10 @@ export function render(data, first) {
                     <p>${result.summaries[0]}</p></details>`
                 }
                 
-                // Add the result image (or placeholder), name and summary to the page.
+                // Add the result image (or placeholder), name, year and summary to the page.
                 $("ul").insertAdjacentHTML("beforeend", `<li><div id="product"><div id="frame"><img src="${result.coverimages[1] ? result.coverimages[1] : 'images/placeholder.png'}" alt="${result.titles[0]}"></div>
                 <span><p>${result.authors ? result.authors.join(", ") : ""}</p>
-                <span id="name">${result.titles[0]}</span>
+                <a href="${result.detailLink}" target="_blank"><span id="name">${result.titles[0]}&nbsp;&nbsp;<span id="year">${result.year}</span></span></a>
                 <p>${summary}</p></span></div></li>`)
             }
         })
