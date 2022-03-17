@@ -30,12 +30,15 @@ export function render(data, first) {
         // Show the instructions.
         $(".instructions").classList.remove("none")
 
+        // Determine whether to show the search query in the instructions.
+        let title = !window.location.hash.substring(1).startsWith("subject") ? ` with the title "${window.location.hash.substring(1).slice(0, window.location.hash.substring(1).indexOf("subject")-1)}"` : ""
+        
         // If no results exist, tell that to the user.
         if (first) {
-            $(".instructions").textContent = `No results were found with the query "${window.location.hash.substring(1)}". Please try again.`
+            $(".instructions").textContent = `No results were found${title}. Please try again.`
         // If all results are already loaded, tell that to the user.
         } else {
-            $(".instructions").textContent = `All results with the query "${window.location.hash.substring(1)}" are already shown.`
+            $(".instructions").textContent = `All results${title} are already shown.`
         }
     }
 

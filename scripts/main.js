@@ -12,8 +12,7 @@ routie ({
 window.onload = function() {
     // If the hash is empty, add the default tab as the hash.
     if (!window.location.hash) {
-        window.location.hash = "subject:\"Veganisme\""
-        // +siso:\"628.72\"
+        window.location.hash = "subject:\"Veganisme\"" // +siso:\"628.72\" to add the SISO as an AND-statement.
     }
 
     // Empty the search query.
@@ -36,39 +35,48 @@ window.onload = function() {
 
 // If the title is clicked, show the homepage.
 $("#title").addEventListener("click", function() {
-    window.location.hash = "subject:\"Veganisme\""
-    location.reload()
+    // Keep the selected tab.
+    window.location.hash = window.location.hash.substring(1).slice(window.location.hash.substring(1).indexOf("subject"))
+
+    // Empty the search query.
+    $('form input').value = ""
 })
 
 $("form").addEventListener("submit", function(event) {
-    window.location.hash = `${$("input").value}+subject:\"Veganisme\"`
+    if ($("input").value) {
+        window.location.hash = `${$("input").value}+subject:\"Veganisme\"`
 
-    $(".all").classList.add("green")
-    $(".cooking").classList.remove("green")
+        $(".all").classList.add("green")
+        $(".cooking").classList.remove("green")
 
-    // Close the keyboard after submit.
-    document.activeElement.blur()
+        // Close the keyboard after submit.
+        document.activeElement.blur()
 
-    // Prevent the page from reloading.
-    event.preventDefault()
+        // Prevent the page from reloading.
+        event.preventDefault()
+    }
 })
 
 // EventListeners for tabs.
 $(".all").addEventListener("click", function() {
-    window.location.hash = "subject:\"Veganisme\""
-
-    // Empty the search query.
-    $('form input').value = ""
+    // Get all results and add the search query to the hash, if there is any.
+    if (!window.location.hash.substring(1).startsWith("subject")) {
+        window.location.hash = `${window.location.hash.substring(1).slice(0, window.location.hash.substring(1).indexOf("subject")-1)}+subject:"Veganisme"`
+    } else {
+        window.location.hash = "subject:\"Veganisme\""
+    }
 
     $(".all").classList.add("green")
     $(".cooking").classList.remove("green")
 })
 
 $(".cooking").addEventListener("click", function() {
-    window.location.hash = "subject:\"Veganistische+kookboeken\""
-
-    // Empty the search query.
-    $('form input').value = ""
+    // Get the cookbook results and add the search query to the hash, if there is any.
+    if (!window.location.hash.substring(1).startsWith("subject")) {
+        window.location.hash = `${window.location.hash.substring(1).slice(0, window.location.hash.substring(1).indexOf("subject")-1)}+subject:"Veganistische+kookboeken"`
+    } else {
+        window.location.hash = "subject:\"Veganistische+kookboeken\""
+    }
 
     $(".all").classList.remove("green")
     $(".cooking").classList.add("green")
