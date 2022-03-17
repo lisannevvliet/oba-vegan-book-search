@@ -15,9 +15,21 @@ export function render(data, first) {
                 }
                 
                 // Add the result image (or placeholder), name and summary to the page.
-                $("ul").insertAdjacentHTML("beforeend", `<li><div id="product"><div id="frame"><img src="${result.coverimages[1] ? result.coverimages[1] : 'images/placeholder.png'}" alt="${result.titles[0]}"></div>
-                <span><span id="name">${result.titles[0]}</span>
-                <p>${summary}</p></span></div></li>`)
+                function add() {
+                    $("ul").insertAdjacentHTML("beforeend", `<li><div id="product"><div id="frame"><img src="${result.coverimages[1] ? result.coverimages[1] : 'images/placeholder.png'}" alt="${result.titles[0]}"></div>
+                    <span><p>${result.authors ? result.authors.join(", ") : ""}</p>
+                    <span id="name">${result.titles[0]}</span>
+                    <p>${summary}</p></span></div></li>`)
+                }
+                
+                if (window.location.hash.substring(1) == "subject:\"Veganisme\"" || window.location.hash.substring(1) == "subject:%22Veganisme%22") {
+                    // Only add the result if the subject actually contains "Veganisme".
+                    if (result["subject-topical"].includes("Veganisme")) {
+                        add()
+                    }
+                } else {
+                    add()
+                }
             }
         })
 

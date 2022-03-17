@@ -13,6 +13,7 @@ window.onload = function() {
     // If the hash is empty, add the default tab as the hash.
     if (!window.location.hash) {
         window.location.hash = "subject:\"Veganistische+kookboeken\""
+        // +siso:\"628.72\"
     }
 
     // Color the tabs according to the selected one (found in the hash).

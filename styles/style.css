@@ -89,7 +89,6 @@ li {
 #product {
     color: black;
     font-size: 1em;
-    line-height: 1.5;
     text-align: center;
     width: 90vw;
     background: #ffffffbf;
@@ -187,9 +186,7 @@ span {
     margin-block-start: 1em;
     margin-inline-start: 1em;
     display: none;
-    margin: 0 auto;
-    margin-bottom: 25px;
-    margin-top: 25px;
+    margin: 25px auto;
 }
 
 @keyframes spin {
