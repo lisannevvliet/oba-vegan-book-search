@@ -12,17 +12,23 @@ routie ({
 window.onload = function() {
     // If the hash is empty, add the default tab as the hash.
     if (!window.location.hash) {
-        window.location.hash = "subject:\"Veganistische+kookboeken\""
+        window.location.hash = "subject:\"Veganisme\""
         // +siso:\"628.72\"
     }
 
     // Empty the search query.
     $('form input').value = ""
 
+    // Fill the search query with the previous input (found in the hash), if there is any.
+    if (!window.location.hash.substring(1).startsWith("subject")) {
+        // Get the input value from the hash.
+        $('form input').value = window.location.hash.substring(1).slice(0, window.location.hash.substring(1).indexOf("subject")-1)
+    }
+
     // Color the tabs according to the selected one (found in the hash).
-    if (window.location.hash.substring(1) == "subject:%22Veganisme%22") {
+    if (window.location.hash.substring(1).includes("subject:%22Veganisme%22")) {
+        $(".all").classList.add("green")
         $(".cooking").classList.remove("green")
-        $(".philosophical").classList.add("green")
     } else {
         $(".cooking").classList.add("green")
     }
@@ -30,15 +36,15 @@ window.onload = function() {
 
 // If the title is clicked, show the homepage.
 $("#title").addEventListener("click", function() {
-    window.location.hash = "subject:\"Veganistische+kookboeken\""
+    window.location.hash = "subject:\"Veganisme\""
     location.reload()
 })
 
 $("form").addEventListener("submit", function(event) {
-    get(true, $("input").value)
+    window.location.hash = `${$("input").value}+subject:\"Veganisme\"`
 
+    $(".all").classList.add("green")
     $(".cooking").classList.remove("green")
-    $(".philosophical").classList.remove("green")
 
     // Close the keyboard after submit.
     document.activeElement.blur()
@@ -48,24 +54,24 @@ $("form").addEventListener("submit", function(event) {
 })
 
 // EventListeners for tabs.
+$(".all").addEventListener("click", function() {
+    window.location.hash = "subject:\"Veganisme\""
+
+    // Empty the search query.
+    $('form input').value = ""
+
+    $(".all").classList.add("green")
+    $(".cooking").classList.remove("green")
+})
+
 $(".cooking").addEventListener("click", function() {
     window.location.hash = "subject:\"Veganistische+kookboeken\""
 
     // Empty the search query.
     $('form input').value = ""
 
+    $(".all").classList.remove("green")
     $(".cooking").classList.add("green")
-    $(".philosophical").classList.remove("green")
-})
-
-$(".philosophical").addEventListener("click", function() {
-    window.location.hash = "subject:\"Veganisme\""
-
-    // Empty the search query.
-    $('form input').value = ""
-
-    $(".cooking").classList.remove("green")
-    $(".philosophical").classList.add("green")
 })
 
 $(".more").addEventListener("click", function() {
