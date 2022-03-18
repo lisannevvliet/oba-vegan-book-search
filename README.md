@@ -39,6 +39,6 @@ The external data source that is featured in this project is the [OBA API](https
 ## Checklist
 The completed tasks can be found in the [commit messages](https://github.com/lisannevvliet/oba-vegan-book-search/commits/main). The following tasks could not be completed in the set time frame, but would be nice to have.
 
-- [ ] Tab for activities, fetched from the [open leermaterialen API](https://obaliquid.staging.aquabrowser.nl/onderwijs/api/v1/search/?q=voeding+NOT+lom.lifecycle.contribute.publisher%3Dwikipedia&authorization=a57b7bbd1cde2f6fb7ce5b3f2d1d96e0).
+- [ ] Tab for learning materials, fetched from the [OBA open leermaterialen API](http://obaliquid.staging.aquabrowser.nl/onderwijs/api/v1/search/?q=veganistisch&refine=true&authorization=d7519ea81ad4e06ab5e5dac46ddeb63a&output=json).
 - [ ] Results which match the category "Veganisme" or the SISO 628.72.
 - [ ] Tab for philisophical books.
