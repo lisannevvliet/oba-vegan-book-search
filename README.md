@@ -20,7 +20,7 @@ The OBA Vegan Book Search was invented to provide an organized website where peo
 
 
 ## Installation
-To view, visit the [GitHub Pages site](https://lisannevvliet.github.io/oba-vegan-book-search/). To make local modifications, clone the repository and edit the files in an IDE.
+To view, visit the [website](https://lisannevvliet.github.io/oba-vegan-book-search/). To make local modifications, clone the repository and edit the files in an IDE.
 
 ## User manual and features
 On the front page all vegan (cooking) books can be viewed, sorted by relevance. It is possible to view only the cookbooks, by clicking on the tab "cooking". Within the range of vegan books can also be searched, using the search bar. In the results, again only the cookbooks can be viewed, if desired. Navigating back to all vegan books can be done by clicking on the logo. When reloading the website, the tab and any search query will be saved.
