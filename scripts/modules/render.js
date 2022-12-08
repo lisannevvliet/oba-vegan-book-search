@@ -1,8 +1,10 @@
 import { $ } from "./$.js"
 
 export function render(data, first) {
-    // If results exist, render them in the HTML.
-    if (data.results.length != 0) {
+    // Check if the API returned a JSON.
+    if (typeof data == "object") {
+       // If results exist, render them in the HTML.
+       if (data.results.length != 0) {
         data.results.forEach(result => {
             if (result.product_name != "") {
                 // Empty string for the summary.
@@ -40,6 +42,10 @@ export function render(data, first) {
         } else {
             $(".instructions").textContent = `All results${title} are already shown.`
         }
+    }
+    } else {
+        // Redirect to the URL needed to request access to the API.
+        window.location.href = data
     }
 
     // Hide the loader once the data is fetched.

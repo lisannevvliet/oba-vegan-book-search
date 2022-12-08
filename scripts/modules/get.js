@@ -23,7 +23,12 @@ export function get(first, query) {
     fetch(`https://cors-anywhere.herokuapp.com/https://zoeken.oba.nl/api/v1/search/?q=${query}&authorization=d7519ea81ad4e06ab5e5dac46ddeb63a&detaillevel=Default&page=${page}&output=json`)
     // fetch(`https://cors-anywhere.herokuapp.com/http://obaliquid.staging.aquabrowser.nl/onderwijs/api/v1/search/?q=veganistisch&refine=true&authorization=d7519ea81ad4e06ab5e5dac46ddeb63a&output=json`)
         .then(function(response) {
-            return response.json()
+            // If access to the API is forbidden, return the URL needed to request it.
+            if (response.statusText == "Forbidden") {
+                return response.url
+            } else {
+                return response.json()
+            }
         })
         .then(function(data) {
             render(data, first)
